@@ -2,7 +2,7 @@
 provider "aws" {
   region = "us-east-1"
 }
-resource "aws_instance" "example" {
+resource "aws_instance" "Docker_Server" {
   ami           = var.ami // Specify your desired AMI ID
   instance_type = var.instance_type //Specify your instance_type
 
