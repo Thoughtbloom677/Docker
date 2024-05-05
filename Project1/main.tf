@@ -3,8 +3,8 @@ provider "aws" {
   region = "us-east-1"
 }
 resource "aws_instance" "example" {
-  ami           = "ami-07caf09b362be10b8" // Specify your desired AMI ID
-  instance_type = "t2.micro"
+  ami           = var.ami // Specify your desired AMI ID
+  instance_type = var.instance_type //Specify your instance_type
 
   // User data to run Nginx, Grafana, and Prometheus Docker containers
   user_data = <<-EOF
@@ -31,7 +31,7 @@ resource "aws_instance" "example" {
               EOF
 
   tags = {
-    Name = "nginx-grafana-prometheus-instance"
+    Name = var.servername
   }
 
   // Other instance configurations...
